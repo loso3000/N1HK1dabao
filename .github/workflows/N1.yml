@@ -28,9 +28,9 @@ jobs:
       matrix:
         include:
           - flippy_name: 67+o
-            release_name: N1-dz-mini-67+o.img
+            release_name: N1-jcnf-mini-67+o.img
           - flippy_name: 67+
-            release_name: N1-dz-mini-67+.img
+            release_name: N1-jcnf-mini-67+.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
@@ -80,14 +80,13 @@ jobs:
       run: |
         cd /opt/openwrt_packit
         sudo cp files/openwrt-update-amlogic output/openwrt-update-amlogic
-        
+        ls ./output
     - name: pigz -9
-      id: pigz
       run: |
         sudo chmod -R 777 /opt/openwrt_packit/output
         cd /opt/openwrt_packit/output
-        sudo pigz -9 $RELEASE_NAME
-
+        sudo pigz -9 N1-novpn-67+o
+        ls
         echo "::set-output name=status::success"
 
     - name: Check Files4
