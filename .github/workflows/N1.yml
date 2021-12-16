@@ -28,7 +28,7 @@ jobs:
       matrix:
         include:
           - flippy_name: 67+o
-            release_name: N1-jcnf-mini-67+o.img
+            release_name: N1-novpn-67+o.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
@@ -83,7 +83,7 @@ jobs:
       run: |
         sudo chmod -R 777 /opt/openwrt_packit/output
         cd /opt/openwrt_packit/output
-        sudo pigz -9 N1-novpn-67+o
+        sudo pigz -9 ${RELEASE_NAME}
         ls
         echo "::set-output name=status::success"
 
