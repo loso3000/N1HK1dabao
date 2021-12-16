@@ -29,8 +29,6 @@ jobs:
         include:
           - flippy_name: 67+o
             release_name: N1-jcnf-mini-67+o.img
-          - flippy_name: 67+
-            release_name: N1-jcnf-mini-67+.img
 
     env:
       FLIPPY_NAME: ${{ matrix.flippy_name }}   
